@@ -1,0 +1,1395 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimal-ui" />
+        <title>SUB | 설화수 한국</title>
+        <script>
+            var dep1 = 'ssulkk';
+            var dep2 = 'ssulkk';
+            var dep3 = 'ssulkk';
+            var dep4 = 'ssulkk';
+            var tplId = '';
+            var curtplId = '';
+        </script>
+        <meta name="google-site-verification" content="5EbKXCdVvWtAtCSz4ijpEzSm1dBk3Q74Z7PEP-SyfRQ" />
+        <link rel="shortcut icon" type="image/x-icon" href="https://amc.apglobal.com/asset/384224417642/image_k0lrvbtv5d2dj13bdrtgr0vk5l?content-disposition=inline/favicon_ver3_230317.ico" />
+        <meta name="google-site-verification" content="dAiK_R34Q8_UjvlLVc8k_FsIJDXdIWO9sm6eBnHGGo8" />
+        <!-- 20170221 유튜브에서 요청하는 매타 태그 추가 -->
+
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="" />
+        <meta property="og:description" content="" />
+        <meta property="og:url" content="" />
+        <meta property="og:image" content="" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content="" />
+        <meta property="twitter:description" content="" />
+        <meta property="twitter:url" content="" />
+        <meta property="twitter:image" content="" />
+
+        <link rel="canonical" href="" />
+        <meta name="google-site-verification" content="db_W4iOaZ1sToRqe4_lraOrBfuXAuw127GD083xPEdM" />
+        <!-- 20151221 add 구글 서치 콘솔 -->
+
+        <link rel="stylesheet" href="https://www.sulwhasoo.com/kr/ko/resource/css/common.min.0.css" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="https://www.sulwhasoo.com/kr/ko/resource/js/iScript.js"></script>
+        <script type="text/javascript" src="https://www.sulwhasoo.com/kr/ko/resource/js/login.js"></script>
+        <!--[if lt IE 9]><link rel="stylesheet" href="https://www.sulwhasoo.com/kr/ko/static/css/ie.min.0.css" /><![endif]-->
+        <script src="https://www.sulwhasoo.com/kr/ko/resource/js/modernizr.min.0.js"></script>
+        <!-- <script type="text/javascript" src="https://www.sulwhasoo.com/kr/ko/resource/js/layout.js"></script> -->
+        <script>
+            $(function () {
+                $.ajax({
+                    url: 'https://www.sulwhasoo.com/kr/ko/layout/menu/gnb.json',
+                    dataType: 'json',
+                    async: false,
+                    success: function (result) {
+                        var txt = makeNavPc(result.menu, 1, '');
+                        $('#gnb-menu').html(txt);
+                        var mtxt = makeNavMob(result.menu, 1, '');
+                        $('#global-nav').html(mtxt);
+                        if (curtplId == 6429) {
+                            var stxt = makeSiteMap(result.menu, 1);
+                            $('#main .sitemap-inner .box-vtc').prepend(stxt);
+                        }
+                    },
+                });
+            });
+
+            function footerDraw() {
+                $('#footer').load('https://www.sulwhasoo.com/kr/ko/layout/footer/footer.html', function () {
+                    $('#language-list').on('click', 'a', function () {
+                        c.closeTarget();
+                    });
+                    var footerOffset = $('.footer-mobile').offset();
+                    var footerBtnHeight = $('.footer-toggle-button').innerHeight() + 15;
+
+                    $(window).scroll(function () {
+                        if ($(window).scrollTop() + $(window).innerHeight() > footerOffset.top - footerBtnHeight / 2) {
+                            if ($('.footer-toggle-button').attr('aria-expanded') === 'false') {
+                                $('.go-top-container').css({ bottom: footerBtnHeight + 'px' });
+                            } else {
+                                var footerHeight = $('.inner-mobile-links').innerHeight();
+                                $('.go-top-container').css({ bottom: footerHeight + footerBtnHeight + 'px' });
+                            }
+                        } else {
+                            $('.go-top-container').css('bottom', '0');
+                        }
+                    });
+                    $(window).resize(function () {
+                        footerOffset = $('.footer-mobile').offset();
+                        footerBtnHeight = $('.footer-toggle-button').innerHeight() + 15;
+                    });
+                    $('.footer-toggle-button').on('click', function () {
+                        if ($(this).attr('aria-expanded') === 'false') {
+                            $(this).attr('aria-expanded', 'true');
+                            var footerHeight = $('.inner-mobile-links').innerHeight();
+                            $('.footer-mobile-links').css({ height: footerHeight + 'px' });
+
+                            $('.footer-mobile-links').one('transitionend webkitTransitionEnd oTransitionEnd otransitionend', function () {
+                                var scrollBottom = $(document).height() - $(window).height();
+                                $('html, body').animate({ scrollTop: scrollBottom }, 300);
+                                $('.go-top-container').css({ bottom: footerHeight + footerBtnHeight + 'px' });
+                            });
+                        } else {
+                            $(this).attr('aria-expanded', 'false');
+                            $('.footer-mobile-links').css({ height: 0 });
+
+                            $('.footer-mobile-links').one('transitionend webkitTransitionEnd oTransitionEnd otransitionend', function () {
+                                $('.go-top-container').css({ bottom: footerBtnHeight + 'px' });
+                            });
+                        }
+                        $(this).toggleClass('is-open');
+                    });
+
+                    if (LOGIN.isLogin()) {
+                        $('.sws-login-btn').css({
+                            display: 'none',
+                        });
+                        $('.sws-logout-btn').css({
+                            display: '',
+                        });
+                    } else {
+                        $('.sws-login-btn').css({
+                            display: '',
+                        });
+                        $('.sws-logout-btn').css({
+                            display: 'none',
+                        });
+                    }
+                    scrollToTop();
+                    logoutBtnEvent();
+                });
+                $('#sidenav .nav-misc-section').load('https://www.sulwhasoo.com/kr/ko/layout/footer/footer_m.html', function () {
+                    if (Modernizr.mediaqueries) {
+                        $('#language-list').clone().attr('id', 'language-list-footer').appendTo($('#sulwhasoo-languages'));
+                    }
+                    var languageBtnBlur, languageBtnKeyDown, languageBtnShiftKey;
+                    function languageKeyBoardTab(e, keyType) {
+                        // 언어 선택 팝업 키보드 접근성 대응 코드
+                        e.type === 'blur' ? (languageBtnBlur = true) : (languageBtnBlur = false);
+                        if (e.type === 'keydown') {
+                            languageBtnKeyDown = true;
+                            e.shiftKey ? (languageBtnShiftKey = true) : (languageBtnShiftKey = false);
+                        }
+                        if (keyType === 'tab' && languageBtnBlur && languageBtnKeyDown && !languageBtnShiftKey) {
+                            languageBtn.removeClass('toggle-on');
+                            languageBtn.attr('aria-expanded', 'false');
+                            languageBtn.focus();
+                            SWS.languageCloseClickEvent = false;
+                        } else if (keyType === 'shiftTab' && languageBtnBlur && languageBtnKeyDown && languageBtnShiftKey) {
+                            languageBtn.removeClass('toggle-on');
+                            languageBtn.attr('aria-expanded', 'false');
+                            languageBtn.focus();
+                            SWS.languageCloseClickEvent = false;
+                        }
+                    }
+                    var languageBtn = $('#toggle-languages');
+                    var languageListBtns = $('#language-list-footer > li > a');
+                    var languageListLastBtn = languageListBtns.length - 1;
+                    languageBtn.click(function () {
+                        $(this).addClass('toggle-on');
+                        languageBtn.attr('aria-expanded', 'true');
+                    });
+                    $(languageListBtns[languageListLastBtn]).on('keydown blur', function (e) {
+                        languageKeyBoardTab(e, 'tab');
+                    });
+                    $('.languages .close-layer-languages').click(function () {
+                        SWS.languageCloseClickEvent = true;
+                        if (SWS.languageCloseClickEvent) {
+                            languageBtn.removeClass('toggle-on');
+                            languageBtn.attr('aria-expanded', 'false');
+                            languageBtn.focus();
+                        }
+                    });
+                    $('.languages .close-layer-languages').on('keydown blur', function (e) {
+                        if (!SWS.languageCloseClickEvent) languageKeyBoardTab(e, 'shiftTab');
+                    });
+                    if (LOGIN.isLogin()) {
+                        $('.sws-login-btn').css({
+                            display: 'none',
+                        });
+                        $('.sws-logout-btn').css({
+                            display: '',
+                        });
+                    } else {
+                        $('.sws-login-btn').css({
+                            display: '',
+                        });
+                        $('.sws-logout-btn').css({
+                            display: 'none',
+                        });
+                    }
+                    logoutBtnEvent();
+                });
+            }
+
+            function logoutBtnEvent() {
+                $('.sws-logout-btn')
+                    .off('click')
+                    .on('click', function (f) {
+                        LOGIN.logout();
+                        f.preventDefault();
+                    });
+            }
+
+            function makeNavPc(res, depth, parentIdx, parentTitle) {
+                var text = '';
+                $.each(res, function (key, value) {
+                    switch (depth) {
+                        case 1:
+                            if (value.isPC === 'T') {
+                                text += "<li class='nav-d1";
+                                if (dep1 === value.id) {
+                                    text += ' is-current';
+                                }
+                                text += "'>";
+                                text += "<a href='" + value.url + "' class='nav-d1-a' ap-click-area='GNB' ap-click-name='Click GNB' ap-click-data='" + value.title + "'";
+                                if (value.target === 'T') {
+                                    text += " target='_blank'";
+                                }
+                                text += "><span class='gnb-a" + (key + 1) + "'>" + value.title + '</span></a>';
+
+                                if (value.children.length && isGnbCheck(value.children, 'isPC')) {
+                                    text += "<ul class='nav-d2-box'>";
+                                    text += makeNavPc(value.children, 2, key, value.title);
+                                    text += '</ul>';
+                                }
+
+                                text += '</li>';
+                            }
+                            break;
+                        case 2:
+                            if (value.isPC === 'T') {
+                                text += "<li class='nav-d2";
+                                if (dep2 === value.id) {
+                                    text += ' is-current';
+                                }
+                                text += "'>";
+                                text += "<a href='" + value.url + "' class='nav-d2-a' ap-click-area='GNB' ap-click-name='Click GNB' ap-click-data='" + parentTitle + '_' + value.title + "'";
+                                if (value.target === 'T') {
+                                    text += " target='_blank'";
+                                }
+                                text += "><span class='gnb-a" + (parentIdx + 1) + '-' + (key + 1) + "'>" + value.title + '</span></a>';
+
+                                if (value.id.includes('ssulkk8')) {
+                                    if (value.children.length && isGnbCheck(value.children, 'isPC')) {
+                                        text += "<ul class='nav-d3-box'>";
+                                        text += makeNavPc(value.children, 3, 'gnb-a' + (parentIdx + 1) + '-' + (key + 1), value.title);
+                                        text += '</ul>';
+                                    }
+                                }
+
+                                text += '</li>';
+                            }
+                            break;
+                        case 3:
+                            if (value.isPC === 'T') {
+                                text += "<li class='nav-d3";
+                                if (dep3 === value.id) {
+                                    text += ' is-current';
+                                }
+                                text += "'>";
+                                text += "<a href='" + value.url + "' class='nav-d3-a' ap-click-area='GNB' ap-click-name='Click GNB' ap-click-data='" + parentTitle + '_' + value.title + "'";
+                                if (value.target === 'T') {
+                                    text += " target='_blank'";
+                                }
+                                text += "><span class='" + parentIdx + '-' + (key + 1) + "'>" + value.title + '</span></a>';
+
+                                if (value.id.includes('ssulkk8')) {
+                                    if (value.children.length && isGnbCheck(value.children, 'isPC')) {
+                                        text += "<ul class='nav-d4-box'>";
+                                        text += makeNavPc(value.children, 4, 'gnb-a' + (parentIdx + 1) + '-' + (key + 1), value.title);
+                                        text += '</ul>';
+                                    }
+                                }
+
+                                text += '</li>';
+                            }
+                            break;
+                        case 4:
+                            if (value.isPC === 'T') {
+                                text += "<li class='nav-d4";
+                                if (dep4 === value.id) {
+                                    text += ' is-current';
+                                }
+                                text += "'>";
+                                text += "<a href='" + value.url + "' class='nav-d4-a' ap-click-area='GNB' ap-click-name='Click GNB' ap-click-data='" + parentTitle + '_' + value.title + "'";
+                                if (value.target === 'T') {
+                                    text += " target='_blank'";
+                                }
+                                text += "><span class='" + parentIdx + '-' + (key + 1) + "'>" + value.title + '</span></a>';
+                                text += '</li>';
+                            }
+                            break;
+                    }
+                });
+                return text;
+            }
+
+            function makeNavMob(res, depth, parentTitle) {
+                var text = '';
+                $.each(res, function (key, value) {
+                    switch (depth) {
+                        case 1:
+                            if (value.isMobile === 'T') {
+                                text += "<h2 class='nav-d1'>";
+                                text += "<a href='" + value.url + "' class='nav-d1-a' ap-click-area='GNB' ap-click-name='Click GNB' ap-click-data='" + value.title + "'";
+                                if (value.target === 'T') {
+                                    text += " target='_blank'";
+                                }
+                                text += '>' + value.title + '</a>';
+
+                                if (value.children.length && isGnbCheck(value.children, 'isMobile')) {
+                                    text += "<i class='icon-nav'></i></h2>";
+                                    text += "<ul class='nav-d2-box'>";
+                                    text += makeNavMob(value.children, 2, value.title);
+                                    text += '</ul>';
+                                } else {
+                                    text += '</h2>';
+                                    text += "<div class='nav-d2-box'></div>";
+                                }
+                            }
+                            break;
+                        case 2:
+                            if (value.isMobile === 'T') {
+                                text += "<li class='nav-d2'>";
+                                text += "<a href='" + value.url + "' class='nav-d2-a' ap-click-area='GNB' ap-click-name='Click GNB' ap-click-data='" + parentTitle + '_' + value.title + "'";
+                                if (value.target === 'T') {
+                                    text += " target='_blank'";
+                                }
+                                text += '>' + value.title + '</a>';
+
+                                if (value.id.includes('ssulkk8')) {
+                                    if (value.children.length && isGnbCheck(value.children, 'isMobile')) {
+                                        text += "<i class='icon-nav'></i></li>";
+                                        text += "<ul class='nav-d3-box'>";
+                                        text += makeNavMob(value.children, 3, value.title);
+                                        text += '</ul>';
+                                    } else {
+                                        text += '</li>';
+                                    }
+                                }
+                            }
+                            break;
+                        case 3:
+                            if (value.isMobile === 'T') {
+                                text += "<li class='nav-d3'>";
+                                text += "<a href='" + value.url + "' class='nav-d3-a' ap-click-area='GNB' ap-click-name='Click GNB' ap-click-data='" + parentTitle + '_' + value.title + "'";
+                                if (value.target === 'T') {
+                                    text += " target='_blank'";
+                                }
+                                text += '>' + value.title + '</a>';
+
+                                if (value.id.includes('ssulkk8')) {
+                                    if (value.children.length && isGnbCheck(value.children, 'isMobile')) {
+                                        text += "<ul class='nav-d4-box'>";
+                                        text += makeNavMob(value.children, 4, value.title);
+                                        text += '</ul>';
+                                        text += '</li>';
+                                    } else {
+                                        text += '</li>';
+                                    }
+                                }
+                            }
+                            break;
+                        case 4:
+                            if (value.isMobile === 'T') {
+                                text += "<li class='nav-d4'>";
+                                text += "<a href='" + value.url + "' class='nav-d4-a' ap-click-area='GNB' ap-click-name='Click GNB' ap-click-data='" + parentTitle + '_' + value.title + "'";
+                                if (value.target === 'T') {
+                                    text += " target='_blank'";
+                                }
+                                text += '>' + value.title + '</a></li>';
+                            }
+                            break;
+                    }
+                });
+                return text;
+            }
+
+            function makeSiteMap(res, depth) {
+                var text = '';
+                $.each(res, function (key, value) {
+                    switch (depth) {
+                        case 1:
+                            if (value.isSiteMap === 'T') {
+                                text += "<div class='sitemap-set'>";
+                                if (value.children.length && isGnbCheck(value.children, 'isSiteMap')) {
+                                    text += "<h2 class='h'><a href='" + value.url + "' ";
+                                    if (value.target === 'T') {
+                                        text += " target='_blank'";
+                                    }
+                                    text += '>' + value.title.replace(/\s/gi, ' <br />') + '</a></h2>';
+                                    text += '<ul>';
+                                    text += makeSiteMap(value.children, 2);
+                                    text += '</ul>';
+                                } else {
+                                    text += "<h2 class='h'><a href='" + value.url + "' ";
+                                    if (value.target === 'T') {
+                                        text += " target='_blank'";
+                                    }
+                                    text += '>' + value.title.replace(/\s/gi, ' <br />') + '</a></h2>';
+                                }
+                                text += '</div>';
+                                /*
+                            if(key > 2){
+                                $('.sitemap-set').css('margin-top','8%');
+                            }
+                            */
+                            }
+                            break;
+                        case 2:
+                            if (value.isSiteMap === 'T') {
+                                if (value.id.includes('ssulkk8')) {
+                                    text += '<li>';
+                                    text += "<a href='" + value.url + "' ";
+                                    if (value.target === 'T') {
+                                        text += " target='_blank'";
+                                    }
+                                    text += '>' + value.title.replace(/\s/gi, ' ') + '</a></h2>';
+                                    if (value.children.length && isGnbCheck(value.children, 'isSiteMap')) {
+                                        text += '<ul>';
+                                        text += makeSiteMap(value.children, 3);
+                                        text += '</ul>';
+                                    }
+                                } else {
+                                    text += '<li>';
+                                    text += "<a href='" + value.url + "' ";
+                                    if (value.target === 'T') {
+                                        text += " target='_blank'";
+                                    }
+                                    text += '>' + value.title + '</a>';
+                                    text += '</li>';
+                                }
+                            }
+                            break;
+                        case 3:
+                            if (value.isSiteMap === 'T') {
+                                if (value.id.includes('ssulkk8')) {
+                                    text += '<li>';
+                                    text += "<a href='" + value.url + "' ";
+                                    if (value.target === 'T') {
+                                        text += " target='_blank'";
+                                    }
+                                    text += '>' + value.title.replace(/\s/gi, ' ') + '</a></h2>';
+                                    if (value.children.length && isGnbCheck(value.children, 'isSiteMap')) {
+                                        text += '<ul>';
+                                        text += makeSiteMap(value.children, 4);
+                                        text += '</ul>';
+                                    }
+                                } else {
+                                    text += '<li>';
+                                    text += "<a href='" + value.url + "' ";
+                                    if (value.target === 'T') {
+                                        text += " target='_blank'";
+                                    }
+                                    text += '>' + value.title + '</a>';
+                                    text += '</li>';
+                                }
+                            }
+                            break;
+
+                        case 4:
+                            if (value.isSiteMap === 'T') {
+                                text += '<li>';
+                                text += "<a href='" + value.url + "' ";
+                                if (value.target === 'T') {
+                                    text += " target='_blank'";
+                                }
+                                text += '>' + value.title + '</a>';
+                                text += '</li>';
+                            }
+                            break;
+                    }
+                });
+                return text;
+            }
+
+            function isGnbCheck(arr, v) {
+                var isGnb = false;
+                $.each(arr, function (key, value) {
+                    if (value[v] === 'T') {
+                        isGnb = true;
+                    }
+                });
+
+                return isGnb;
+            }
+        </script>
+        <script type="text/javascript" src="https://www.sulwhasoo.com/kr/ko/resource/js/api.js"></script>
+        <script type="text/javascript" src="https://www.sulwhasoo.com/kr/ko/resource/js/util.js"></script>
+
+        <!--20181001 실란 입사 컬렉션 메타태그 추가-->
+
+        <!-- Google Tag  Manager -->
+        <script>
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s),
+                    dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true;
+                j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-PNTDCFJ');
+        </script>
+        <!-- End Google Tag Manager -->
+
+        <!-- Google Tag Manager 20191217-->
+        <script>
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s),
+                    dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true;
+                j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-TCP82QB');
+        </script>
+        <!-- End Google Tag Manager 20191217-->
+
+        <!-- Google Tag Manager 20240222 -->
+        <script>
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s),
+                    dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true;
+                j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-M3V7NC7D');
+        </script>
+        <!-- End Google Tag Manager 20240222 -->
+
+        <!-- GA360 20180813 -->
+        <!--<script>-->
+        <!--digitalData = window.digitalData || {};-->
+
+        <!--digitalData.userInfo = {-->
+        <!--'profile': {-->
+        <!--'attribute': {-->
+        <!--'loginStatus': 'N',-->
+        <!--}-->
+        <!--}-->
+        <!--};-->
+
+        <!--</script>-->
+        <!-- GA360 End-->
+    </head>
+
+    <body>
+        <!--[if lt IE 9
+            ]><div id="legacy-browser">
+                사용중인 브라우저는 곧 지원이 중단되는 브라우저입니다. <a href="http://windows.microsoft.com/ko-kr/internet-explorer/ie-11-worldwide-languages" target="_blank">최신 버전</a>으로
+                업그레이드하시거나 <a href="https://www.google.com/intl/ko/chrome/browser/" target="_blank">Chrome</a>과 같은 최신 브라우저를 이용해 주세요.
+                <button type="button" class="legacy-browser-close">닫기<i class="icon"></i></button></div
+        ><![endif]-->
+
+        <div class="dpimeta"></div>
+
+        <a href="#main" id="skipnav" ap-click-area="Header" ap-click-name="Click - #main" ap-click-data="#main">본문 바로가기</a>
+        <div id="browser-resizing"></div>
+
+        <div id="wrap">
+            <header id="header" class="header renew2022-header" ap-type="header">
+                <div class="l-header">
+                    <div class="logo">
+                        <a href="/kr/ko/index.html" class="logo-a" data-track-name="gnb/logo" ap-click-area="Header" ap-click-name="Click - Header" ap-click-data="logo">
+                            <span class="logo-img"><em class="ap2022-sr-only">Sulwhasoo</em></span>
+                        </a>
+                    </div>
+
+                    <div class="header-inner">
+                        <button type="button" id="sidenav-open" class="sidenav-open"><i class="icon icon-menu"></i><span class="blind">메뉴 열기</span></button>
+                        <div class="select-language">
+                            <a href="#language-list" class="toggle-layer select-language-a">한국/한국어</a>
+                        </div>
+                        <ul id="language-list" class="select-language-list">
+                            <li class="is-current">
+                                <a href="https://www.sulwhasoo.com/kr/ko" data-track-name="lang/krko" ap-click-area="Header" ap-click-name="Select Country" ap-click-data="kr/ko">한국/한국어</a>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://www.sulwhasoo.com/int/en"
+                                    target="_blank"
+                                    title="새창"
+                                    data-track-name="lang/inten"
+                                    ap-click-area="Header"
+                                    ap-click-name="Select Country"
+                                    ap-click-data="int/en"
+                                    >International/English</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="https://www.sulwhasoo.com.cn"
+                                    target="_blank"
+                                    title="새창"
+                                    data-track-name="lang/cnzh"
+                                    ap-click-area="Header"
+                                    ap-click-name="Select Country"
+                                    ap-click-data="cn/zh"
+                                    >中文</a
+                                >
+                            </li>
+                            <li>
+                                <a href="https://hk.sulwhasoo.com/" target="_blank" title="새창" data-track-name="lang/hkzh" ap-click-area="Header" ap-click-name="Select Country" ap-click-data="hk/zh"
+                                    >繁體中文</a
+                                >
+                            </li>
+                            <!-- <li><a href="https://www.sulwhasoo.com/hk/en" target="_blank" title="새창" data-track-name="lang/hken" ap-click-area="Header" ap-click-name="Select Country" ap-click-data="hk/en">Hong Kong(China)/English</a></li>-->
+                            <li>
+                                <a href="https://sg.sulwhasoo.com/" target="_blank" title="새창" data-track-name="lang/sgen" ap-click-area="Header" ap-click-name="Select Country" ap-click-data="sg/en"
+                                    >Singapore/English</a
+                                >
+                            </li>
+                            <li>
+                                <a href="https://my.sulwhasoo.com/" target="_blank" title="새창" data-track-name="lang/myen" ap-click-area="Header" ap-click-name="Select Country" ap-click-data="my/en"
+                                    >Malaysia/English</a
+                                >
+                            </li>
+                            <li>
+                                <a href="https://vn.sulwhasoo.com/" target="_blank" title="새창" data-track-name="lang/vnvi" ap-click-area="Header" ap-click-name="Select Country" ap-click-data="vn/vi"
+                                    >Việt Nam/Tiếng Việt</a
+                                >
+                            </li>
+                            <!-- 20160330 -->
+                            <!--<li><a href="http://www.sulwhasoo.com.vn/" target="_blank" title="새창" data-track-name="lang/vnen" ap-click-area="Header" ap-click-name="Select Country" ap-click-data="vn/en">Vietnam/English</a></li>-->
+                            <li>
+                                <a
+                                    href="https://www.sulwhasoo.com/id/id"
+                                    target="_blank"
+                                    title="새창"
+                                    data-track-name="lang/idid"
+                                    ap-click-area="Header"
+                                    ap-click-name="Select Country"
+                                    ap-click-data="id/id"
+                                    >Indonesia/Bahasa Indonesia</a
+                                >
+                            </li>
+                            <!-- 20160401 -->
+                            <li>
+                                <a href="https://th.sulwhasoo.com/" target="_blank" title="새창" data-track-name="lang/thth" ap-click-area="Header" ap-click-name="Select Country" ap-click-data="th/th"
+                                    >ประเทศไทย/ไทย</a
+                                >
+                            </li>
+                            <!--<li><a href="http://www.sulwhasoo.co.th/en" target="_blank" title="새창" data-track-name="lang/then" ap-click-area="Header" ap-click-name="Select Country" ap-click-data="th/en">Thailand/English</a></li>-->
+                            <!-- <li><a href="https://www.sulwhasoo.com/tw/zh" target="_blank" title="새창" data-track-name="lang/twzh" ap-click-area="Header" ap-click-name="Select Country" ap-click-data="tw/zh">台灣/繁體中文</a></li> -->
+                            <li>
+                                <a href="http://us.sulwhasoo.com/" target="_blank" title="새창" data-track-name="lang/usen" ap-click-area="Header" ap-click-name="Select Country" ap-click-data="us/en"
+                                    >USA/English</a
+                                >
+                            </li>
+                            <!-- <li><a href="https://www.sulwhasoo.com/fr/fr" target="_blank" title="새창" data-track-name="lang/frfr" ap-click-area="Header" ap-click-name="Select Country" ap-click-data="fr/fr">FRANCE/FRANCAIS</a></li> --><!-- 20170908 -->
+                        </ul>
+                        <!-- 20170608 -->
+                        <div class="misc-links">
+                            <!--<a href="/kr/ko/experience/now.html" class="misc-a" data-track-name="gnb/news">뉴스</a>-->
+                            <a href="/kr/ko/misc/store/store.html" class="misc-a" data-track-name="gnb/store" ap-click-area="Header" ap-click-name="Click - Find a Store" ap-click-data="매장찾기"
+                                >매장찾기</a
+                            >
+                            <a
+                                href="https://www.amorepacificmall.com/kr/ko/display/brand/brand1?displayMenuId=brand1&brandSn=18"
+                                target="_blank"
+                                title="새창"
+                                class="misc-a"
+                                data-track-shop="ap 구매하러 가기"
+                                ap-click-area="Header"
+                                ap-click-name="Click - Mall"
+                                ap-click-data="구매하기"
+                                >구매하기</a
+                            ><!-- 20170623 -->
+                            <a href="#top-search" id="open-search" class="misc-open-search" data-track-name="gnb/search" ap-click-area="Header" ap-click-name="Click - Search" ap-click-data="Search"
+                                ><i class="icon-search"></i><span class="blind">search</span></a
+                            >
+                        </div>
+                        <!-- //20170608 -->
+                    </div>
+                </div>
+                <div id="top-search" class="search-container" hidden>
+                    <div class="inner-top-search">
+                        <form name="" action="/kr/ko/misc/search/search.html" class="search">
+                            <div class="wrap-search-box">
+                                <div class="search-box">
+                                    <label for="q" class="blind">검색</label>
+                                    <input name="q" id="q" type="search" class="text" autocomplete="off" placeholder="검색어를 입력해주세요" />
+                                    <input name="_charset_" type="hidden" value="UTF-8" />
+                                    <button type="button" class="search-delete" hidden><span class="blind">검색어 삭제</span></button>
+                                    <button type="submit" class="submit"><span>검색</span></button>
+                                </div>
+                                <div class="wrap-search-close">
+                                    <a href="#open-search" class="sch-close" ap-click-area="Header" ap-click-name="Click - Search Close" ap-click-data="Search Close">
+                                        <span>닫기</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <nav id="gnb" class="gnb renew2022-gnb" ap-type="gnb">
+                    <div class="l-wrap">
+                        <!--181107 GNB 국문, 시스템 폰트  작업-->
+                        <div class="blind">Top Navigation</div>
+                        <ul id="gnb-menu" class="gnb-menu"></ul>
+                    </div>
+                    <div id="gnb-bg" class="bg"></div>
+                </nav>
+
+                <!-- 20220412 삭제 -->
+                <!--<script id='pixlee_script' src="https://assets.pixlee.com/assets/pixlee_events.js"></script>
+            <script type="text/javascript">
+                pixlee_analytics = new Pixlee_Analytics("oUmM0uIiFOyAAtg6JKYd");
+            </script>-->
+                <!-- //20220412 삭제 -->
+            </header>
+
+            <!-- Google Tag Manager (noscript) -->
+            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PNTDCFJ" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
+            <!-- End Google Tag Manager (noscript) -->
+
+            <!-- Google Tag Manager (noscript) 20191217-->
+            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TCP82QB" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
+            <!-- End Google Tag Manager (noscript) 20191217 -->
+
+            <!-- Google Tag Manager (noscript) 20240222-->
+            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M3V7NC7D" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
+            <!-- End Google Tag Manager (noscript) 20240222-->
+
+            <script>
+                $(document).ready(function () {
+                    $('main[role=main]').attr('ap-type', 'content');
+                });
+            </script>
+
+            <script>
+                //$(window).load(function(){
+
+                var dataLayer = window.dataLayer || [];
+                var AP_SEARCH_TERM = '';
+                var AP_SEARCH_NUM = '';
+                var AP_SEARCH_TYPE = '';
+                var AP_SEARCH_PRDRESULT = '';
+
+                var AP_DATA_GCID = '';
+                var AP_DATA_CID = '';
+                var AP_DATA_ISMEMBER = '';
+                var AP_DATA_ISLOGIN = '';
+                var AP_DATA_LOGINTYPE = '';
+                var AP_DATA_CD = '';
+                var AP_DATA_CA = '';
+                var AP_DATA_CG = '';
+
+                function loginCallBack() {
+                    if (LOGIN.isLogin()) {
+                        var userInfo_ = LOGIN.getGAUserInfo();
+                        AP_DATA_GCID = userInfo_.cstmId;
+                        AP_DATA_CID = userInfo_.ucstmId;
+                        AP_DATA_ISMEMBER = 'O';
+                        AP_DATA_ISLOGIN = 'Y';
+                        AP_DATA_LOGINTYPE = 'NORMAL';
+                        AP_DATA_CD = userInfo_.birth;
+                        AP_DATA_CA = userInfo_.gnrt;
+                        AP_DATA_CG = userInfo_.sex;
+                    }
+                }
+                console.log('AP_DATA_CA=' + AP_DATA_CA);
+                var AP_DATA_CT = ''; //일반 / 스마트 클럽 / 스마트 클럽 프라임 / VIP
+                var AP_DATA_SITENAME = 'SULWHASOO';
+                var AP_DATA_CHANNEL = ''; //PC / MOBILE / APP
+                var filter = 'win16|win32|win64|mac';
+                if (navigator.platform && filter.indexOf(navigator.platform.toLowerCase()) >= 0) {
+                    AP_DATA_CHANNEL = 'PC';
+                } else {
+                    AP_DATA_CHANNEL = 'MOBILE';
+                }
+                var AP_DATA_PAGENAME = document.title; //페이지 타이틀명 입력
+                var AP_DATA_PAGETYPE = ''; //main, prds, prd, events, event, search	① 메인페이지 : main 제품리스트 : prds 제품상세 : prd 이벤트리스트 : events 이벤트상세 : event 검색결과페이지 : search 나머지는 공백
+                var AP_DATA_COUNTRY = 'kr';
+                var AP_DATA_LANG = 'ko';
+                var AP_DATA_BREAD = 'HOME  > ';
+
+                //});
+            </script>
+
+            <!-- middle 스크립트 - 로컬 작업 편의를 위해 아래 스크립트는 gnb.html 에 포함 -->
+            <script src="https://www.sulwhasoo.com/kr/ko/resource/js/bodyScrollLock.min.js"></script>
+            <script src="https://www.sulwhasoo.com/kr/ko/resource/js/common.min.0.js"></script>
+            <!-- //middle 스크립트 -->
+
+            <!-- ## CMS 등록 영역 ## -->
+
+            <!-- 
+    * 24-07-30
+    * count 추가 <slot name="count"> 검색
+    * secret 추가 <slot name="secret"> 검색
+ -->
+
+            <!-- S : 자유 HTML 등록 영역 -->
+            <link rel="stylesheet" href="https://www.sulwhasoo.com/kr/ko/resource/css/aos.css" />
+            <link rel="stylesheet" href="https://www.sulwhasoo.com/kr/ko/resource/css/swiper.min.css" />
+            <!-- <link rel="stylesheet" href="https://www.sulwhasoo.com/kr/ko/resource/css/concentrated-ginseng-rejuvenating-cream.css" /> -->
+            <link rel="stylesheet" href="assets/css/ginsengcream.css" />
+
+            <main id="main" role="main" class="__main">
+                <article class="ap-post ap-post--ginseng-cream" data-article-year="2024">
+                    <h1 class="ap2022-sr-only">설화수 자음생크림 소개</h1>
+
+                    <!-- intro-video -->
+                    <section class="ap-section ap-section--intro-video">
+                        <div class="ap-section__header">
+                            <div class="ap-text-wrap">
+                                <p class="ap-section__desc" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1500">
+                                    <span class="font-thein">60</span>년 인삼과학의 정수,<br />
+                                    자생력으로 차오른 고밀도 피부
+                                </p>
+                                <h2 class="title-wrap" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500">
+                                    <em>NEW</em>
+                                    <span class="ap-section__title ap-section__title--ko">자음생크림​</span>
+                                </h2>
+                            </div>
+
+                            <picture class="ap-image">
+                                <source srcset="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_intro_mo_kr_240801.jpg" media="(max-width: 750px)" />
+                                <img src="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_intro_pc_kr_240801.jpg" alt="설화수 자음생크림" />
+                            </picture>
+                        </div>
+                        <div class="ap-section__body ap-section__body--2024">
+                            <picture class="ap-image">
+                                <source srcset="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_intro-vid-bg_mo_kr_240801.jpg" media="(max-width: 750px)" />
+                                <img src="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_intro-vid-bg_pc_kr_240801.jpg" alt="" />
+                            </picture>
+                            <div class="ap-section-video" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1500">
+                                <div class="ap-video">
+                                    <video
+                                        src="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_intro_video_pc_kr_240801.mp4"
+                                        autoplay
+                                        muted
+                                        playsinline
+                                        loop
+                                        controls
+                                        class="pc-only"></video>
+                                    <video
+                                        src="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_intro_video_mo_kr_240801.mp4"
+                                        autoplay
+                                        muted
+                                        playsinline
+                                        loop
+                                        controls
+                                        class="mo-only"></video>
+                                    <div class="ap2022-video-script-box ap2022-video-script-box--show">
+                                        <div class="ap2022-video-script-box__text ap2022-video-script-box__text--show">
+                                            (자막)<br />
+                                            설화수 NEW 자음생크림<br />
+                                            진세노믹스™ | Ginsenomics™ |<br />
+                                            진생펩타이드™ | Ginseng Peptide™ |<br />
+                                            폭발적 케미스트리로<br />
+                                            더 강력해진 피부 자생력<br />
+                                            고밀도 피부를 완성하다<br />
+                                            NEW 자음생크림<br />
+                                            Sulwhasoo
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- feature-01 -->
+                    <section class="ap-section ap-section--feature-01" data-aos="fade-up" data-aos-duration="1500">
+                        <div class="section-inner-l">
+                            <div class="ap-section__header">
+                                <p class="ap-section__desc" data-aos="fade-up" data-aos-duration="1500">피부 자생력을 높이는 인삼과학의 힘</p>
+                                <p class="ap-section__title" data-aos="fade-up" data-aos-duration="1500">
+                                    <span class="font-thein">10</span>년 연속 안티에이징 크림 <span class="font-thein">1</span>위<sup>*</sup><br />
+                                    자음생크림
+                                </p>
+                            </div>
+                            <div class="ap-section__body">
+                                <p class="ap-text" data-aos="fade-up" data-aos-duration="1500">
+                                    60년간 끊임없는 진화를 거듭해온<br />
+                                    설화수의 대표 안티에이징 인삼크림, 자음생크림<br /><br />
+                                    더욱 강력해진 인삼과학의 힘으로<br />
+                                    피부에 자생력을 높이고 고밀도 피부를 완성하세요
+                                </p>
+                                <p class="ap-desc" data-aos="fade-up" data-aos-duration="1500"><sup>*</sup> 2015-2024년 1분기 누계 Beauté Rearch 한국 매출 기준</p>
+                            </div>
+                        </div>
+                        <picture class="ap-image">
+                            <source srcset="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_feature-01_mo_kr_240801.jpg" media="(max-width: 750px)" />
+                            <img src="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_feature-01_pc_kr_240801.jpg" alt="설화수 자음생크림" />
+                        </picture>
+                    </section>
+
+                    <!-- goods -->
+                    <section class="ap-section ap-section--goods">
+                        <div class="section-inner-l">
+                            <div class="products-info-wrap apu-flex">
+                                <div class="info-wrap apu-flex">
+                                    <div class="text-wrap" data-aos-delay="100">
+                                        <div class="fade-up-box" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+                                            <h3 class="prd-name prd-name--ko">자음생크림</h3>
+                                            <p class="prd-name prd-name--en">CONCENTRATED GINSENG REJUVENATING CREAM</p>
+                                            <p class="prd-desc">
+                                                60년 인삼 과학의 정수,<br />
+                                                자생력으로 차오른 고밀도 피부
+                                            </p>
+                                        </div>
+                                        <div class="price-wrap" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
+                                            <span class="prd-price">
+                                                <span class="amount">30ml</span>
+                                                <span class="number">168,000</span>원
+                                            </span>
+                                            <span class="prd-price">
+                                                <span class="amount">50ml</span>
+                                                <span class="number">270,000</span>원
+                                            </span>
+                                        </div>
+                                        <div class="btn-wrap">
+                                            <a
+                                                href="/kr/ko/products/concentrated-ginseng-rejuvenating-cream.html"
+                                                class="ginseng2023-btn ginseng2023-btn--more"
+                                                ap-click-area="Coverpage - Concentrated Ginseng Rejuvenating Cream Rejuvenating Cream"
+                                                ap-click-name="Click - VIEW DETAIL"
+                                                ap-click-data="Concentrated Ginseng Rejuvenating Cream"
+                                                data-aos="fade-up"
+                                                data-aos-duration="1500"
+                                                data-aos-delay="600">
+                                                자세히 보기
+                                            </a>
+                                            <a
+                                                href="https://www.amoremall.com/kr/ko/product/detail?onlineProdSn=62212&onlineProdCode=111170002157"
+                                                target="_blank"
+                                                class="ginseng2023-btn ginseng2023-btn--goto-mall"
+                                                ap-click-area="Coverpage - Concentrated Ginseng Rejuvenating Cream Rejuvenating Cream"
+                                                ap-click-name="Click - Mall"
+                                                ap-click-data="Concentrated Ginseng Rejuvenating Cream"
+                                                data-aos="fade-up"
+                                                data-aos-duration="1500"
+                                                data-aos-delay="700">
+                                                구매하러 가기
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="products-image" data-aos="fade-up" data-aos-duration="1500">
+                                    <div class="post2022-image">
+                                        <picture>
+                                            <source srcset="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_product01_mo_kr_240801.jpg" media="(max-width: 750px)" />
+                                            <img src="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_product01_pc_kr_240801.jpg" alt="설화수 자음생크림" />
+                                        </picture>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- secret -->
+                    <section class="ap-section ap-section--secret">
+                        <div class="ap-background">
+                            <div class="ap-background-inner"></div>
+                        </div>
+
+                        <div class="ap-section__wrapper">
+                            <div class="ap-section__header">
+                                <div class="ap-image">
+                                    <picture>
+                                        <source srcset="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_secret-top_mo_kr_240812.jpg" media="(max-width: 750px)" />
+                                        <img src="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_secret-top_pc_kr_240812.jpg" alt="설화수 자음생크림" />
+                                    </picture>
+                                </div>
+
+                                <h2 class="ap-section__title">
+                                    <span class="ap-section__title--color1" data-aos="fade-up" data-aos-duration="1000"
+                                        >진세노믹스<sup>™</sup><br class="mo-only" />X<br class="mo-only" />진생펩타이드<sup>™</sup></span
+                                    >
+                                    <span class="ap-section__title--color2" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150">폭발적 케미스트리로</span>
+                                    <span class="ap-section__title--color3" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">더욱 강력해진 자생력</span>
+                                </h2>
+                            </div>
+
+                            <div class="ap-section__body">
+                                <div class="ap-section__inner">
+                                    <ul class="ap-secret">
+                                        <li class="ap-secret__item ap-secret__item--01">
+                                            <div class="ap-secret__inner" data-aos="fade-up" data-aos-duration="1000">
+                                                <div class="ap-image">
+                                                    <picture>
+                                                        <source
+                                                            srcset="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_secret-01_mo_kr_240801.jpg"
+                                                            media="(max-width: 750px)" />
+                                                        <img
+                                                            src="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_secret-01_pc_kr_240801.jpg"
+                                                            alt="설화수 안티에이징 특허 성분 진세노믹스 연출" />
+                                                    </picture>
+                                                </div>
+                                                <div class="ap-text">
+                                                    <h3 class="ap-text__title">
+                                                        피부 자생력을 채우는<br />
+                                                        진세노믹스<sup>™</sup>
+                                                    </h3>
+                                                    <p class="ap-text__desc">
+                                                        <span class="font-thein">6,000</span>배 고농축 진세노믹스<sup>™</sup>가<br />
+                                                        <span class="font-thein">48</span>시간 내 콜라겐을 복구하고,<br />
+                                                        <span class="font-thein">18</span>개의 피부 노화 핵심 신호를 케어하여<br />
+                                                        피부 노화속도를 완화시킵니다
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="ap-secret__item ap-secret__item--02">
+                                            <div class="ap-secret__inner">
+                                                <div class="ap-image">
+                                                    <picture>
+                                                        <source
+                                                            srcset="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_secret-02_mo_kr_240801.jpg"
+                                                            media="(max-width: 750px)" />
+                                                        <img
+                                                            src="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_secret-02_pc_kr_240801.jpg"
+                                                            alt="(NEW) 헥사펩다이드9 / 아세틸 헥사펩타이드8 / 진생펩다이드 / (NEW) 아세틸 테트라펩타이드11 / 아세틸 옥타펩타이드3 / 아세틸 헵타펩타이드4" />
+                                                    </picture>
+                                                </div>
+                                                <div class="ap-text">
+                                                    <h3 class="ap-text__title">진생펩타이드<sup>™</sup></h3>
+                                                    <p class="ap-text__desc">
+                                                        인삼 추출 펩타이드 + <span class="font-thein">5</span>가지 펩타이드의<br class="mo-only" />
+                                                        조합으로<br class="pc-only" />
+                                                        <span class="font-thein">33%</span> 탄력 인자를 강화하여<br />
+                                                        새로운 차원의 고밀도 피부를 완성합니다
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- detail02 -->
+                    <section class="ap-section ap-section--detail02 ap-section--detail">
+                        <div class="ap-section__body">
+                            <p class="ap-title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+                                사용 중단 <span class="line">7일 후</span>에도 지속되는<br />
+                                주름, 탄력 개선 효과
+                            </p>
+                            <div class="improvement" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
+                                <div class="improvement__item">
+                                    <p class="item-num">+12.7%</p>
+                                    <p class="item-text">굵은 주름 이마​</p>
+                                </div>
+                                <div class="improvement__item">
+                                    <p class="item-num">+10.2%</p>
+                                    <p class="item-text">굵은 주름 눈가</p>
+                                </div>
+                                <div class="improvement__item">
+                                    <p class="item-num">+5.8%</p>
+                                    <p class="item-text">겉탄력 뺨​</p>
+                                </div>
+                            </div>
+                            <p class="ap-desc" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">
+                                <sup>*</sup>자음생크림 리치 인체 적용 시험 기간 : 2023.11.06 ~2023.12.22​<br />
+                                시험대상 : 20-60세 여성 33명
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- feature-02 -->
+                    <section class="ap-section ap-section--feature-02" data-aos="fade-up" data-aos-duration="1500">
+                        <div class="section-inner-l">
+                            <div class="ap-section__header">
+                                <p class="ap-section__title" data-aos="fade-up" data-aos-duration="1500">
+                                    피부 자생력으로 차올린<br />
+                                    고밀도 타이트닝
+                                </p>
+                            </div>
+                            <div class="ap-section__body" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+                                <div class="effect ap-count">
+                                    <div class="effect__col">
+                                        <div class="effect__group">
+                                            <p class="effect__title">치밀도</p>
+                                            <div class="effect__item">
+                                                <p class="item-num"><span class="item-count" data-target="14.2" data-speed="1.5">0</span>%</p>
+                                            </div>
+                                        </div>
+                                        <div class="effect__group">
+                                            <p class="effect__title">속탄력</p>
+                                            <div class="effect__item">
+                                                <p class="item-text">뺨</p>
+                                                <p class="item-num"><span class="item-count" data-target="20.1" data-speed="1.5">0</span>%</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="effect__col">
+                                        <div class="effect__group">
+                                            <p class="effect__title">타이트닝</p>
+                                            <div class="effect__item">
+                                                <p class="item-text">팔자</p>
+                                                <p class="item-num"><span class="item-count" data-target="8.6" data-speed="1.5">0</span>%</p>
+                                            </div>
+                                            <div class="effect__item">
+                                                <p class="item-text">이마</p>
+                                                <p class="item-num"><span class="item-count" data-target="7.8" data-speed="1.5">0</span>%</p>
+                                            </div>
+                                            <div class="effect__item">
+                                                <p class="item-text">뺨</p>
+                                                <p class="item-num"><span class="item-count" data-target="12.9" data-speed="1.5">0</span>%</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="ap-desc pc-only">
+                                    <sup>*</sup> 자음생크림 리치 인체 적용 시험 결과​<br />
+                                    &nbsp;&nbsp;시험기간 : 2023.11.06-2023.12.27​<br />
+                                    &nbsp;&nbsp;시험대상 : 20-60세 여성 31명
+                                </p>
+                                <p class="ap-desc mo-only">
+                                    <sup>*</sup> 인체 적용 시험 결과​<br />
+                                    &nbsp;&nbsp;시험기간 : 2023.11.06-2023.12.27​<br />
+                                    &nbsp;&nbsp;시험대상 : 20-60세 여성 31명
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="ap-section ap-section--texture-group" data-aos="fade-up" data-aos-duration="1500">
+                        <section class="ap-section ap-section--texture ap-section--texture-top">
+                            <div class="ap-section__body">
+                                <picture class="ap-image" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+                                    <source srcset="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_texture-top_mo_kr_240801.jpg" media="(max-width: 750px)" />
+                                    <img src="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_texture-top_pc_kr_240801.jpg" alt="설화수 자음생크림" />
+                                </picture>
+                                <div class="ap-text-wrap" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+                                    <h2 class="ap-section__title">자생력으로 차올린<br />고밀도 피부</h2>
+                                    <p class="ap-text">
+                                        매일매일 피부의 자생력을 키우고<br />
+                                        피부 속부터 촘촘히 채워 올려<br />
+                                        탄력 있고 건강한 고밀도 피부를 만들어 가세요
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="ap-section ap-section--texture ap-section--texture-01">
+                            <div class="ap-section__body" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">
+                                <p class="ap-section__desc">부드럽고 산뜻한 텍스처</p>
+                                <h2 class="ap-section__title">자음생크림</h2>
+                                <p class="ap-text">
+                                    데일리로 사용하기 좋은 산뜻한 텍스처로<br />
+                                    맑고 소프트하게 마무리됩니다
+                                </p>
+                            </div>
+                        </section>
+                        <picture class="ap-image">
+                            <source srcset="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_texture-01_mo_kr_240801.jpg" media="(max-width: 750px)" />
+                            <img src="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_texture-01_pc_kr_240801.jpg" alt="설화수 자음생크림 제형" />
+                        </picture>
+                    </div>
+
+                    <section class="ap-section ap-section--texture ap-section--texture-02" data-aos="fade-up" data-aos-duration="1500">
+                        <div class="ap-section__body" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">
+                            <p class="ap-section__desc">끈적임 없는 고밀도 텍스처</p>
+                            <h2 class="ap-section__title">자음생크림 리치</h2>
+                            <p class="ap-text">
+                                묵직한 영양감의 고밀도 텍스처가<br />
+                                유화 단계 없이 피부에 부드럽게 펴 발립니다
+                            </p>
+                        </div>
+                        <picture class="ap-image">
+                            <source srcset="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_texture-02_mo_kr_240801.jpg" media="(max-width: 750px)" />
+                            <img src="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_texture-02_pc_kr_240801.jpg" alt="설화수 자음생크림 리치 제형" />
+                        </picture>
+                    </section>
+
+                    <!-- sustainable -->
+                    <section class="ap-section ap-section--sustainable" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+                        <div class="section-inner-l">
+                            <div class="ap-section__body product-line-swiper">
+                                <ul class="product-line swiper-wrapper">
+                                    <li class="product-list product-list__list-01 swiper-slide">
+                                        <div class="ap-section-image">
+                                            <picture>
+                                                <source
+                                                    srcset="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_product-water_mo_kr_240801.png"
+                                                    media="(max-width: 750px)" />
+                                                <img src="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_product-water_pc_kr_240801.png" alt="설화수 자음생수" />
+                                            </picture>
+                                        </div>
+                                        <div class="product-detail">
+                                            <p class="prd-name">
+                                                자음생수
+                                                <span class="prd-name-en">CONCENTRATED GINSENG <br class="pc-only" />REJUVENATING WATER</span>
+                                            </p>
+                                        </div>
+                                        <a
+                                            href="/kr/ko/products/concentrated-ginseng-rejuvenating-water.html"
+                                            ap-click-area="Coverpage - Concentrated Ginseng Rejuvenating Cream Rejuvenating Cream"
+                                            ap-click-name="Click - VIEW DETAIL"
+                                            ap-click-data="List - Concentrated Ginseng Rejuvenating Water">
+                                            <span class="ginseng2023-btn">자세히 보기</span> </a
+                                        ><br />
+                                        <a
+                                            href="https://www.amoremall.com/kr/ko/product/detail?onlineProdSn=62163&onlineProdCode=111170002135"
+                                            target="_blank"
+                                            ap-click-area="Coverpage - Concentrated Ginseng Rejuvenating Cream Rejuvenating Cream"
+                                            ap-click-name="Click - Mall"
+                                            ap-click-data="List - Concentrated Ginseng Rejuvenating Water">
+                                            <span class="ginseng2023-btn ginseng2023-btn--goto-mall">구매하러 가기</span>
+                                        </a>
+                                    </li>
+                                    <li class="product-list product-list__list-02 swiper-slide">
+                                        <div class="ap-section-image">
+                                            <picture>
+                                                <source
+                                                    srcset="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_product-emulsion_mo_kr_240801.png"
+                                                    media="(max-width: 750px)" />
+                                                <img src="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_product-emulsion_pc_kr_240801.png" alt="설화수 자음생유액" />
+                                            </picture>
+                                        </div>
+                                        <div class="product-detail">
+                                            <p class="prd-name">
+                                                자음생유액
+                                                <span class="prd-name-en">CONCENTRATED GINSENG <br class="pc-only" />REJUVENATING EMULSION</span>
+                                            </p>
+                                        </div>
+                                        <a
+                                            href="/kr/ko/products/concentrated-ginseng-rejuvenating-emulsion.html"
+                                            ap-click-area="Coverpage - Concentrated Ginseng Rejuvenating Cream Rejuvenating Cream"
+                                            ap-click-name="Click - VIEW DETAIL"
+                                            ap-click-data="List - Concentrated Ginseng Rejuvenating Emulsion">
+                                            <span class="ginseng2023-btn">자세히 보기</span> </a
+                                        ><br />
+                                        <a
+                                            href="https://www.amoremall.com/kr/ko/product/detail?onlineProdSn=62164&onlineProdCode=111170002136"
+                                            target="_blank"
+                                            ap-click-area="Coverpage - Concentrated Ginseng Rejuvenating Cream Rejuvenating Cream"
+                                            ap-click-name="Click - Mall"
+                                            ap-click-data="List - Concentrated Ginseng Rejuvenating Emulsion">
+                                            <span class="ginseng2023-btn ginseng2023-btn--goto-mall">구매하러 가기</span>
+                                        </a>
+                                    </li>
+                                    <li class="product-list product-list__list-03 swiper-slide">
+                                        <div class="ap-section-image">
+                                            <picture>
+                                                <source
+                                                    srcset="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_product-serum_mo_kr_240801.png"
+                                                    media="(max-width: 750px)" />
+                                                <img
+                                                    src="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_product-serum_pc_kr_240801.png"
+                                                    alt="설화수 자음생캡슐세럼" />
+                                            </picture>
+                                        </div>
+                                        <div class="product-detail">
+                                            <p class="prd-name">
+                                                자음생캡슐세럼
+                                                <span class="prd-name-en">CONCENTRATED GINSENG <br class="pc-only" />REJUVENATING SERUM</span>
+                                            </p>
+                                        </div>
+                                        <a
+                                            href="/kr/ko/products/concentrated-ginseng-rejuvenating-serum.html"
+                                            ap-click-area="Coverpage - Concentrated Ginseng Rejuvenating Cream Rejuvenating Cream"
+                                            ap-click-name="Click - VIEW DETAIL"
+                                            ap-click-data="List - Concentrated Ginseng Rejuvenating Serum">
+                                            <span class="ginseng2023-btn">자세히 보기</span> </a
+                                        ><br />
+                                        <a
+                                            href="https://www.amoremall.com/kr/ko/product/detail?onlineProdSn=62213&onlineProdCode=111170002158"
+                                            target="_blank"
+                                            ap-click-area="Coverpage - Concentrated Ginseng Rejuvenating Cream Rejuvenating Cream"
+                                            ap-click-name="Click - Mall"
+                                            ap-click-data="List - Concentrated Ginseng Rejuvenating Serum">
+                                            <span class="ginseng2023-btn ginseng2023-btn--goto-mall">구매하러 가기</span>
+                                        </a>
+                                    </li>
+                                    <li class="product-list product-list__list-04 swiper-slide">
+                                        <div class="ap-section-image">
+                                            <picture>
+                                                <source
+                                                    srcset="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_product-eyecream_mo_kr_240801.png"
+                                                    media="(max-width: 750px)" />
+                                                <img
+                                                    src="https://www.sulwhasoo.com/kr/ko/resource/img/cover/concentrated_ginseng_renewing_product-eyecream_pc_kr_240801.png"
+                                                    alt="설화수 자음생아이크림" />
+                                            </picture>
+                                        </div>
+                                        <div class="product-detail">
+                                            <p class="prd-name">
+                                                자음생아이크림
+                                                <span class="prd-name-en">CONCENTRATED GINSENG <br class="pc-only" />REJUVENATING EYE CREAM</span>
+                                            </p>
+                                        </div>
+                                        <a
+                                            href="/kr/ko/products/concentrated-ginseng-rejuvenating-eye-cream.html"
+                                            ap-click-area="Coverpage - Concentrated Ginseng Rejuvenating Cream Rejuvenating Cream"
+                                            ap-click-name="Click - VIEW DETAIL"
+                                            ap-click-data="List - Concentrated Ginseng Rejuvenating Eye Cream">
+                                            <span class="ginseng2023-btn">자세히 보기</span> </a
+                                        ><br />
+                                        <a
+                                            href="https://www.amoremall.com/kr/ko/product/detail?onlineProdSn=62171&onlineProdCode=111170002142"
+                                            target="_blank"
+                                            ap-click-area="Coverpage - Concentrated Ginseng Rejuvenating Cream Rejuvenating Cream"
+                                            ap-click-name="Click - Mall"
+                                            ap-click-data="List - Concentrated Ginseng Rejuvenating Eye Cream">
+                                            <span class="ginseng2023-btn ginseng2023-btn--goto-mall">구매하러 가기</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="swiper-button-next product-line-swiper-button-next"></div>
+                                <div class="swiper-button-prev product-line-swiper-button-prev"></div>
+                            </div>
+                        </div>
+                    </section>
+                </article>
+            </main>
+
+            <!-- [[--Custom, tag:sulkk_middle--]] -->
+            <!-- <script src="https://www.sulwhasoo.com/kr/ko/resource/js/bodyScrollLock.min.js"></script>
+<script src="https://www.sulwhasoo.com/kr/ko/resource/js/common.min.0.js"></script> -->
+            <script src="https://www.sulwhasoo.com/kr/ko/resource/js/gsap.min.js"></script>
+            <script src="https://www.sulwhasoo.com/kr/ko/resource/js/scrollTrigger.min.js"></script>
+            <script src="https://www.sulwhasoo.com/kr/ko/resource/js/aos.js"></script>
+            <script src="https://www.sulwhasoo.com/kr/ko/resource/js/swiper.min.js"></script>
+            <!-- <script src="https://www.sulwhasoo.com/kr/ko/resource/js/concentrated-ginseng-rejuvenating-cream.js"></script> -->
+            <script src="assets/js/concentrated-ginseng-rejuvenating-cream.js"></script>
+            <script>
+                $(document).ready(function () {
+                    AP2022A11Y.setVideoScript.toggle();
+                });
+            </script>
+
+            <!-- S : 자유 HTML 등록 영역 -->
+
+            <!-- ## //CMS 등록 영역 ## -->
+
+            <footer id="footer" class="footer" ap-type="footer"></footer>
+        </div>
+        <!-- // #wrap -->
+
+        <nav id="sidenav" role="navigation" class="sidenav">
+            <div class="nd-box sidenav-box">
+                <div class="sidenav-h">
+                    <!-- 20160824 a태그 add -->
+                    <a href="/kr/ko/" ap-click-area="Header" ap-click-name="Click - Header" ap-click-data="logo" class="logo-a">
+                        <span class="ap2022-sr-only">Sulwhasoo Site Navigation</span>
+                    </a>
+                    <button class="nav-close-btn">
+                        <span class="blind">Sulwhasoo Site Navigation close</span>
+                    </button>
+                </div>
+
+                <div class="wrap-nav-contents">
+                    <div class="inner-nav-contents" tabindex="0">
+                        <div id="global-nav" class="nav-list"></div>
+
+                        <section class="nav-misc-section"></section>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha512.js"></script>
+
+        <script>
+            var toggleflag = (function () {
+                var s = true;
+                return function () {
+                    s = s == true ? false : true;
+                    return s;
+                };
+            })();
+
+            $(document).ready(function () {
+                var dpimeta = $('#dpimeta');
+                if (dpimeta != null && dpimeta.length > 0) {
+                    $('#dpimetatoggle').click(function () {
+                        if (toggleflag()) dpimeta.show();
+                        else dpimeta.hide();
+                    });
+                }
+            });
+
+            function trackClicksEx() {
+                return false;
+            }
+        </script>
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": []
+            }
+        </script>
+    </body>
+</html>
