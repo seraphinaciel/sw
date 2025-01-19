@@ -86,26 +86,26 @@ const apSecret = (function () {
         const bgImg = item.querySelector('.ap-image img');
         const text = item.querySelectorAll('.ap-text > *');
 
-        if (!isSamsung) {
-            if (index > 0) {
-                animateIn.to(previousItem, { duration: 1, delay: 0.5, opacity: 0, scale: 0.9 }, 'bg' + index);
-            }
-            if (index === 0) {
-                animateIn.set(item, {
-                    top: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    transformOrigin: '50% 50%',
-                });
-            }
-        } else {
+        // if (!isSamsung) {
+        if (index > 0) {
             animateIn.to(previousItem, { duration: 1, delay: 0.5, opacity: 0, scale: 0.9 }, 'bg' + index);
-
+        }
+        if (index === 0) {
             animateIn.set(item, {
-                top: '0%',
-                transform: 'translate(-50%, 0)',
+                top: '50%',
+                transform: 'translate(-50%, -50%)',
                 transformOrigin: '50% 50%',
             });
         }
+        // } else {
+        //     animateIn.to(previousItem, { duration: 1, delay: 0.5, opacity: 0, scale: 0.9 }, 'bg' + index);
+
+        //     animateIn.set(item, {
+        //         top: '0%',
+        //         transform: 'translate(-50%, 0)',
+        //         transformOrigin: '50% 50%',
+        //     });
+        // }
 
         animateIn
             .fromTo(
